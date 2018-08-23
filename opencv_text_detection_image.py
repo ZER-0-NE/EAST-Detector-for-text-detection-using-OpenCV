@@ -18,5 +18,18 @@ ap.add_argument("-e", "--height", type = int,
 	default = 320, help = "resized image height(should be multiple of 32)")
 args = vars(ap.parse_args())
 
+image = cv2.imread(args["image"])
+orig = image.copy()
+(h,w) = image.shape[:2]
+
+# setting new width and height
+(newW, newH) = (args["width"], args["height"])
+rW = w/float(newW)
+rH = h/float(newH)
+
+#resize the image
+image = cv2.resize(image, (newW, newH))
+(h,w) = image.shape[:2]
+
 
 
