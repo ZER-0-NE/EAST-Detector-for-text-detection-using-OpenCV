@@ -31,5 +31,40 @@ rH = h/float(newH)
 image = cv2.resize(image, (newW, newH))
 (h,w) = image.shape[:2]
 
+# we define the two output layer names for the EAST Detector model
+# that we are interested in
+layers = [
+	"feature_fusion/Conv_7/Sigmoid",
+	"feature_fusion/concat_3"]
+
+# loading pre-trained EAST detector
+print("[INFO] loading EAST text detector")
+net = cv2.dnn.readNet(args["east"])
+
+blob = cv2.dnn.blobFromImage(image, 1.0, (w,h),
+	(123.68, 116.78, 103.94), swapRB = True, crop = False)
+
+start = time.time()
+net.setInput(blob)
+(scores, geometry) = net.forward(layers)
+end = time.time()
+
+print("[INFO] text detection took {:.6f} seconds".format(end-start))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
