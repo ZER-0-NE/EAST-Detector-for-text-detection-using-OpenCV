@@ -84,7 +84,7 @@ for y in range(0, numrows):
 	starty = int(endy - h)
 
 	# appending the confidence score and probabilities to list
-	recs.append((startx, starty, endx, endy))
+	rects.append((startx, starty, endx, endy))
 	confidences.append(scoresdata[x])
 
 # applying non-maxima suppression to supppress weak and overlapping bounding boxes
