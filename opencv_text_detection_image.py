@@ -83,6 +83,9 @@ for y in range(0, numrows):
 	startx = int(endx - w)
 	starty = int(endy - h)
 
+	startX, endX = np.clip([startX, endX], 0, W)
+	startY, endY = np.clip([startY, endY], 0, H)
+
 	# appending the confidence score and probabilities to list
 	rects.append((startx, starty, endx, endy))
 	confidences.append(scoresdata[x])
@@ -100,21 +103,3 @@ for(startx, starty, endx, endy) in boxes:
 
 cv2.imshow("text Detection", orig)
 cv2.waitKey(0)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
