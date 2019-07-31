@@ -83,8 +83,8 @@ for y in range(0, numrows):
 	startx = int(endx - w)
 	starty = int(endy - h)
 
-	startX, endX = np.clip([startX, endX], 0, W)
-	startY, endY = np.clip([startY, endY], 0, H)
+	startx, endx = np.clip([startx, endx], 0, w)
+	starty, endy = np.clip([starty, endy], 0, h)
 
 	# appending the confidence score and probabilities to list
 	rects.append((startx, starty, endx, endy))
