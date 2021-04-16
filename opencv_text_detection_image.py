@@ -1,6 +1,5 @@
 # USAGE
-# python opencv_text_detection_image.py --image images/lebron_james.jpg
-# --east frozen_east_text_detection.pb
+# python3 opencv_text_detection_image.py --image images/lebron_james.jpg --east frozen_east_text_detection.pb
 
 # import the necessary packages
 from imutils.object_detection import non_max_suppression
